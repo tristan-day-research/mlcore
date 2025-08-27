@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ml-core"
+version = "0.1.0"
+description = "Reusable ML utilities library."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "pydantic>=2",
+    "pydantic-settings>=2",
+    "pandas>=2",
+]
+
+[project.optional-dependencies]
+prefect = ["prefect>=2.16"]
+s3 = ["fsspec>=2024.3.1", "s3fs>=2024.3.1"]
+dev = ["pytest", "pytest-cov", "mypy", "ruff", "pre-commit", "prefect>=2.16"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mlcore"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/mlcore", "README.md", "CHANGELOG.md", "LICENSE", "pyproject.toml"]
