@@ -3,7 +3,7 @@ from ._version import __version__
 from .io.files import read_df, read_json, write_df, write_json
 from .schemas.documents import DataBatch, ModelCard
 from .settings import AppSettings
-from .utils.logging import get_logger
+from .utils.logging import get_logger, hello_world
 from .validation.records import validate_iterable
 
 try:  # pragma: no cover - optional dependency
@@ -11,17 +11,3 @@ try:  # pragma: no cover - optional dependency
 except Exception:  # pragma: no cover
     task_default = flow_default = None
 
-__all__ = [
-    "__version__",
-    "get_logger",
-    "AppSettings",
-    "read_df",
-    "write_df",
-    "read_json",
-    "write_json",
-    "ModelCard",
-    "DataBatch",
-    "validate_iterable",
-    "task_default",
-    "flow_default",
-]
